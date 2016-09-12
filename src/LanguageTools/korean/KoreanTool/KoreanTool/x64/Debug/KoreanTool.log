@@ -1,0 +1,28 @@
+﻿Build started 2014/3/27 20:56:27.
+     1>Project "F:\TRTrans\master\src\LanguageTools\korean\KoreanTool\KoreanTool\KoreanTool.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Debug\KoreanTool.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"F:\TRTrans\master\src\LanguageTools\korean\KoreanTool\x64\Debug\KoreanTool.lib" /NOLOGO x64\Debug\Main.obj
+         x64\Debug\ArrayTrie.obj
+         x64\Debug\CompoundAnalysis.obj
+         x64\Debug\Dictionary.obj
+         x64\Debug\KMAnalyser.obj
+         x64\Debug\KMA_DLL.obj
+         x64\Debug\KUnicode.obj
+         x64\Debug\OptionSet.obj
+         x64\Debug\ProbComputer.obj
+         x64\Debug\StringTokenizer.obj
+         x64\Debug\SymbolProcessor.obj
+         x64\Debug\Zamo.obj
+         KoreanTool.vcxproj -> F:\TRTrans\master\src\LanguageTools\korean\KoreanTool\x64\Debug\KoreanTool.lib
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\KoreanTool.unsuccessfulbuild".
+         Touching "x64\Debug\KoreanTool.lastbuildstate".
+     1>Done Building Project "F:\TRTrans\master\src\LanguageTools\korean\KoreanTool\KoreanTool\KoreanTool.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.22

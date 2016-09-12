@@ -1,0 +1,86 @@
+﻿Build started 2015/5/22 11:55:47.
+     1>Project "D:\work\TRTrans\master\src\LanguageTools\tibet\tibetsplitsent\lib_tibetsplitsent.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "lib_tibetsplitsent.dir\Release\lib_tibetsplitsent.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "lib_tibetsplitsent.dir\Release\lib_tibetsplitsent.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/work/TRTrans/master/src/LanguageTools/tibet/tibetsplitsent/CMakeLists.txt
+         CMake does not need to re-run because D:\work\TRTrans\master\src\LanguageTools\tibet\tibetsplitsent\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/work/TRTrans/boost_1_48_0 /ID:/work/TRTrans/mysql/include /I"D:/work/TRTrans/mysql++-3.1.0" /ID:/work/TRTrans/icu/include/win64 /ID:/work/TRTrans/master/src/LanguageTools/tibet/tibetsplitsent/../../.. /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D WINDOWS /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"lib_tibetsplitsent.dir\Release\\" /Fd"D:/work/TRTrans/master/src/LanguageTools/tibet/tibetsplitsent/Release/lib_tibetsplitsent.pdb" /Gd /TP /errorReport:prompt Common.cpp CreatFeat.cpp File.cpp iLines.cpp MaxEntModel.cpp Segmenter.cpp Sentenizer.cpp TibetSentParse.cpp
+         Common.cpp
+         CreatFeat.cpp
+     1>CreatFeat.cpp(74): warning C4267: “参数”: 从“size_t”转换到“const int”，可能丢失数据
+     1>CreatFeat.cpp(82): warning C4267: “参数”: 从“size_t”转换到“const int”，可能丢失数据
+         File.cpp
+         iLines.cpp
+         MaxEntModel.cpp
+     1>MaxEntModel.cpp(53): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(105) : 参见“strcpy”的声明
+     1>MaxEntModel.cpp(173): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\utility(163): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\utility(247): 参见对正在编译的函数 模板 实例化“std::_Pair_base<_Ty1,_Ty2>::_Pair_base<char*&,size_t&>(_Other1,_Other2)”的引用
+                 with
+                 [
+                     _Ty1=const char *const ,
+                     _Ty2=int,
+                     _Other1=char *&,
+                     _Other2=size_t &
+                 ]
+                 MaxEntModel.cpp(56): 参见对正在编译的函数 模板 实例化“std::pair<_Ty1,_Ty2>::pair<char*&,size_t&>(_Other1,_Other2)”的引用
+                 with
+                 [
+                     _Ty1=const char *const ,
+                     _Ty2=int,
+                     _Other1=char *&,
+                     _Other2=size_t &
+                 ]
+     1>C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\utility(163): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\utility(255): 参见对正在编译的函数 模板 实例化“std::_Pair_base<_Ty1,_Ty2>::_Pair_base<_Ty,unsigned __int64>(_Other1 &&,_Other2 &&)”的引用
+                 with
+                 [
+                     _Ty1=int,
+                     _Ty2=int,
+                     _Ty=int,
+                     _Other1=int,
+                     _Other2=size_t
+                 ]
+                 MaxEntModel.cpp(101): 参见对正在编译的函数 模板 实例化“std::pair<_Ty1,_Ty2>::pair<int,unsigned __int64>(std::pair<_Ty1,unsigned __int64> &&)”的引用
+                 with
+                 [
+                     _Ty1=int,
+                     _Ty2=int
+                 ]
+         Segmenter.cpp
+         Sentenizer.cpp
+     1>Sentenizer.cpp(139): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(149): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(153): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(163): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(178): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(186): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(196): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(204): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(216): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Sentenizer.cpp(242): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+         TibetSentParse.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\work\TRTrans\master\src\LanguageTools\tibet\tibetsplitsent\Release\lib_tibetsplitsent.lib" /NOLOGO lib_tibetsplitsent.dir\Release\Common.obj
+         lib_tibetsplitsent.dir\Release\CreatFeat.obj
+         lib_tibetsplitsent.dir\Release\File.obj
+         lib_tibetsplitsent.dir\Release\iLines.obj
+         lib_tibetsplitsent.dir\Release\MaxEntModel.obj
+         lib_tibetsplitsent.dir\Release\Segmenter.obj
+         lib_tibetsplitsent.dir\Release\Sentenizer.obj
+         lib_tibetsplitsent.dir\Release\TibetSentParse.obj
+         lib_tibetsplitsent.vcxproj -> D:\work\TRTrans\master\src\LanguageTools\tibet\tibetsplitsent\Release\lib_tibetsplitsent.lib
+       FinalizeBuildStatus:
+         Deleting file "lib_tibetsplitsent.dir\Release\lib_tibetsplitsent.unsuccessfulbuild".
+         Touching "lib_tibetsplitsent.dir\Release\lib_tibetsplitsent.lastbuildstate".
+     1>Done Building Project "D:\work\TRTrans\master\src\LanguageTools\tibet\tibetsplitsent\lib_tibetsplitsent.vcxproj" (rebuild target(s)).
+
+生成成功。
+
+Time Elapsed 00:00:08.50

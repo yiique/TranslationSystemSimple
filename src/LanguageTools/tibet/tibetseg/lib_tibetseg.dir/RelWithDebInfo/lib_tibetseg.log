@@ -1,0 +1,76 @@
+﻿Build started 2014/11/28 15:54:27.
+     1>Project "D:\work\TRTrans\master\src\LanguageTools\tibet\tibetseg\lib_tibetseg.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\work\TRTrans\master\src\LanguageTools\tibet\tibetseg\RelWithDebInfo\".
+       InitializeBuildStatus:
+         Creating "lib_tibetseg.dir\RelWithDebInfo\lib_tibetseg.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/work/TRTrans/master/src/LanguageTools/tibet/tibetseg/CMakeLists.txt
+         CMake does not need to re-run because D:\work\TRTrans\master\src\LanguageTools\tibet\tibetseg\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/work/TRTrans/boost_1_48_0 /ID:/work/TRTrans/mysql/include /I"D:/work/TRTrans/mysql++-3.1.0" /ID:/work/TRTrans/icu/include/win64 /ID:/work/TRTrans/master/src/LanguageTools/tibet/tibetseg/../../.. /Zi /nologo /W3 /WX- /O2 /Ob1 /D WIN32 /D _WINDOWS /D NDEBUG /D WINDOWS /D "CMAKE_INTDIR=\"RelWithDebInfo\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"lib_tibetseg.dir\RelWithDebInfo\\" /Fd"D:/work/TRTrans/master/src/LanguageTools/tibet/tibetseg/RelWithDebInfo/lib_tibetseg.pdb" /Gd /TP /errorReport:prompt ChType.cpp Perceptron.cpp PerSeg.cpp Segmentor.cpp splitutf.cpp
+         ChType.cpp
+         Perceptron.cpp
+         PerSeg.cpp
+         Segmentor.cpp
+     1>Segmentor.cpp(254): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Segmentor.cpp(257): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+     1>Segmentor.cpp(269): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(276): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(281): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(288): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(292): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(298): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(305): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(310): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(316): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(323): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : 参见“sprintf”的声明
+     1>Segmentor.cpp(500): warning C4309: “初始化”: 截断常量值
+     1>Segmentor.cpp(500): warning C4309: “初始化”: 截断常量值
+     1>Segmentor.cpp(500): warning C4309: “初始化”: 截断常量值
+     1>Segmentor.cpp(539): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+         splitutf.cpp
+     1>splitutf.cpp(21): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(21): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(21): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(23): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(23): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(23): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(25): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(25): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(25): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(27): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(27): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(27): warning C4309: “初始化”: 截断常量值
+     1>splitutf.cpp(69): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>splitutf.cpp(160): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>splitutf.cpp(261): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>splitutf.cpp(310): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>splitutf.cpp(334): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>splitutf.cpp(354): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\work\TRTrans\master\src\LanguageTools\tibet\tibetseg\RelWithDebInfo\lib_tibetseg.lib" /NOLOGO lib_tibetseg.dir\RelWithDebInfo\ChType.obj
+         lib_tibetseg.dir\RelWithDebInfo\Perceptron.obj
+         lib_tibetseg.dir\RelWithDebInfo\PerSeg.obj
+         lib_tibetseg.dir\RelWithDebInfo\Segmentor.obj
+         lib_tibetseg.dir\RelWithDebInfo\splitutf.obj
+         lib_tibetseg.vcxproj -> D:\work\TRTrans\master\src\LanguageTools\tibet\tibetseg\RelWithDebInfo\lib_tibetseg.lib
+       FinalizeBuildStatus:
+         Deleting file "lib_tibetseg.dir\RelWithDebInfo\lib_tibetseg.unsuccessfulbuild".
+         Touching "lib_tibetseg.dir\RelWithDebInfo\lib_tibetseg.lastbuildstate".
+     1>Done Building Project "D:\work\TRTrans\master\src\LanguageTools\tibet\tibetseg\lib_tibetseg.vcxproj" (build target(s)).
+
+生成成功。
+
+Time Elapsed 00:00:04.11

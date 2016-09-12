@@ -1,0 +1,17 @@
+ADD_SUBDIRECTORY(Control)
+ADD_SUBDIRECTORY(Dictionary)
+ADD_SUBDIRECTORY(Template)
+ADD_SUBDIRECTORY(Translate)
+ADD_SUBDIRECTORY(PreProcess)
+ADD_SUBDIRECTORY(PostProcess)
+
+INCLUDE_DIRECTORIES(../)
+AUX_SOURCE_DIRECTORY(. CPROCESS_SRC_LIST)
+ADD_LIBRARY(lib_cprocess ${CPROCESS_SRC_LIST})
+
+TARGET_LINK_LIBRARIES(lib_cprocess lib_control_process)
+TARGET_LINK_LIBRARIES(lib_cprocess lib_dictionary_process)
+TARGET_LINK_LIBRARIES(lib_cprocess lib_template_process)
+TARGET_LINK_LIBRARIES(lib_cprocess lib_translate_process)
+TARGET_LINK_LIBRARIES(lib_cprocess lib_preprocess_process)
+TARGET_LINK_LIBRARIES(lib_cprocess lib_post_after_process)

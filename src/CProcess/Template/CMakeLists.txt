@@ -1,0 +1,6 @@
+INCLUDE_DIRECTORIES(../../)
+INCLUDE_DIRECTORIES(../)
+AUX_SOURCE_DIRECTORY(. TEMPLATE_PROCESS_SRC_LIST)
+ADD_LIBRARY(lib_template_process ${TEMPLATE_PROCESS_SRC_LIST})
+TARGET_LINK_LIBRARIES(lib_template_process lib_tinyxml)
+TARGET_LINK_LIBRARIES(lib_template_process lib_templatelibrary)

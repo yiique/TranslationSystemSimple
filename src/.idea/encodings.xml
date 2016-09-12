@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Log/LogData.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Log/LogPrinter.cc" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Log/LogPrinter.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Log/LogStream.cc" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Log/LogStream.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/OltManager/OltTaskManager.cc" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/OltManager/OltTaskManager.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/TextHandler/TextHandler.cc" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/TransController/TransController.cc" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/TransText/LTransTextProcessor.cc" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/TransText/TransText.cc" charset="GBK" />
+  </component>
+</project>

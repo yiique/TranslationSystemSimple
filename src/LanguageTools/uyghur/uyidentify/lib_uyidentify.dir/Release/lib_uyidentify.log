@@ -1,0 +1,21 @@
+﻿Build started 2015/7/15 18:37:02.
+     1>Project "D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\lib_uyidentify.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "lib_uyidentify.dir\Release\lib_uyidentify.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         All outputs are up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/work/TRTrans/boost_1_48_0 /ID:/work/TRTrans/mysql/include /I"D:/work/TRTrans/mysql++-3.1.0" /ID:/work/TRTrans/icu/include/win64 /ID:/work/TRTrans/master/src/LanguageTools/uyghur/uyidentify/../.. /ID:/work/TRTrans/master/src/LanguageTools/uyghur/uyidentify/. /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D WINDOWS /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"lib_uyidentify.dir\Release\\" /Fd"D:/work/TRTrans/master/src/LanguageTools/uyghur/uyidentify/Release/lib_uyidentify.pdb" /Gd /TP /errorReport:prompt CCodeRec.cpp
+         CCodeRec.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\Release\lib_uyidentify.lib" /NOLOGO lib_uyidentify.dir\Release\CCodeRec.obj
+         lib_uyidentify.dir\Release\LangModel.obj
+         lib_uyidentify.vcxproj -> D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\Release\lib_uyidentify.lib
+       FinalizeBuildStatus:
+         Deleting file "lib_uyidentify.dir\Release\lib_uyidentify.unsuccessfulbuild".
+         Touching "lib_uyidentify.dir\Release\lib_uyidentify.lastbuildstate".
+     1>Done Building Project "D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\lib_uyidentify.vcxproj" (build target(s)).
+
+生成成功。
+
+Time Elapsed 00:00:00.58

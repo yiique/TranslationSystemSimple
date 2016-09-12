@@ -1,0 +1,55 @@
+﻿Build started 2015/5/22 11:55:31.
+     1>Project "D:\work\TRTrans\master\src\LanguageTools\uyghur\uynetrans\lib_uynetrans.vcxproj" on node 5 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "lib_uynetrans.dir\Release\lib_uynetrans.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "lib_uynetrans.dir\Release\lib_uynetrans.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/work/TRTrans/master/src/LanguageTools/uyghur/uynetrans/CMakeLists.txt
+         CMake does not need to re-run because D:\work\TRTrans\master\src\LanguageTools\uyghur\uynetrans\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/work/TRTrans/boost_1_48_0 /ID:/work/TRTrans/mysql/include /I"D:/work/TRTrans/mysql++-3.1.0" /ID:/work/TRTrans/icu/include/win64 /ID:/work/TRTrans/master/src/LanguageTools/uyghur/uynetrans/../.. /ID:/work/TRTrans/master/src/Common /ID:/work/TRTrans/master/src/LanguageTools/uyghur/uynetrans/. /nologo /W3 /WX- /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D WINDOWS /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"lib_uynetrans.dir\Release\\" /Fd"D:/work/TRTrans/master/src/LanguageTools/uyghur/uynetrans/Release/lib_uynetrans.pdb" /Gd /TP /errorReport:prompt func.cpp
+         func.cpp
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\../../Tools2.h(104): warning C4267: “=”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\../../Tools2.h(121): warning C4267: “=”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NELang2Num.h(82): warning C4244: “return”: 从“float”转换到“unsigned __int64”，可能丢失数据
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NELang2Num.h(84): warning C4244: “return”: 从“float”转换到“unsigned __int64”，可能丢失数据
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(65): warning C4309: “初始化”: 截断常量值
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(65): warning C4309: “初始化”: 截断常量值
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(65): warning C4309: “初始化”: 截断常量值
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(66): warning C4309: “初始化”: 截断常量值
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(66): warning C4309: “初始化”: 截断常量值
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(66): warning C4309: “初始化”: 截断常量值
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(67): warning C4309: “初始化”: 截断常量值
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(67): warning C4309: “初始化”: 截断常量值
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NEReplace.h(67): warning C4309: “初始化”: 截断常量值
+     1>func.cpp(28): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\../../deelx.h(3627): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+                 d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\../../deelx.h(3383): 编译类 模板 成员函数“char *CRegexpT<CHART>::Replace(const CHART *,int,const CHART *,int,int &,int,int,MatchResult *,CContext *) const”时
+                 with
+                 [
+                     CHART=char
+                 ]
+                 d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\../../deelx.h(3164): 编译类 模板 成员函数“CRegexpT<CHART>::CRegexpT(const CHART *,int)”时
+                 with
+                 [
+                     CHART=char
+                 ]
+                 d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\NELang2Num.h(33): 参见对正在编译的类 模板 实例化“CRegexpT<CHART>”的引用
+                 with
+                 [
+                     CHART=char
+                 ]
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\../../deelx.h(3638): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\work\trtrans\master\src\languagetools\uyghur\uynetrans\../../deelx.h(3645): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\work\TRTrans\master\src\LanguageTools\uyghur\uynetrans\Release\lib_uynetrans.lib" /NOLOGO lib_uynetrans.dir\Release\func.obj
+         lib_uynetrans.vcxproj -> D:\work\TRTrans\master\src\LanguageTools\uyghur\uynetrans\Release\lib_uynetrans.lib
+       FinalizeBuildStatus:
+         Deleting file "lib_uynetrans.dir\Release\lib_uynetrans.unsuccessfulbuild".
+         Touching "lib_uynetrans.dir\Release\lib_uynetrans.lastbuildstate".
+     1>Done Building Project "D:\work\TRTrans\master\src\LanguageTools\uyghur\uynetrans\lib_uynetrans.vcxproj" (rebuild target(s)).
+
+生成成功。
+
+Time Elapsed 00:00:04.60

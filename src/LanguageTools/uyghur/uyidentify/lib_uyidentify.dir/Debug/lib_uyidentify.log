@@ -1,0 +1,26 @@
+﻿Build started 2015/7/15 17:40:56.
+     1>Project "D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\lib_uyidentify.vcxproj" on node 5 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "lib_uyidentify.dir\Debug\lib_uyidentify.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/work/TRTrans/master/src/LanguageTools/uyghur/uyidentify/CMakeLists.txt
+         CMake does not need to re-run because D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/work/TRTrans/boost_1_48_0 /ID:/work/TRTrans/mysql/include /I"D:/work/TRTrans/mysql++-3.1.0" /ID:/work/TRTrans/icu/include/win64 /ID:/work/TRTrans/master/src/LanguageTools/uyghur/uyidentify/../.. /ID:/work/TRTrans/master/src/LanguageTools/uyghur/uyidentify/. /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"lib_uyidentify.dir\Debug\\" /Fd"D:/work/TRTrans/master/src/LanguageTools/uyghur/uyidentify/Debug/lib_uyidentify.pdb" /Gd /TP /errorReport:prompt CCodeRec.cpp LangModel.cpp
+         CCodeRec.cpp
+         LangModel.cpp
+     1>D:\work\TRTrans\master\src\LanguageTools\lmsridll.h(3): warning C4005: “_WIN32”: 宏重定义
+                 命令行参数: 参见前面的“_WIN32”定义
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\Debug\lib_uyidentify.lib" /NOLOGO lib_uyidentify.dir\Debug\CCodeRec.obj
+         lib_uyidentify.dir\Debug\LangModel.obj
+         lib_uyidentify.vcxproj -> D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\Debug\lib_uyidentify.lib
+       FinalizeBuildStatus:
+         Deleting file "lib_uyidentify.dir\Debug\lib_uyidentify.unsuccessfulbuild".
+         Touching "lib_uyidentify.dir\Debug\lib_uyidentify.lastbuildstate".
+     1>Done Building Project "D:\work\TRTrans\master\src\LanguageTools\uyghur\uyidentify\lib_uyidentify.vcxproj" (build target(s)).
+
+生成成功。
+
+Time Elapsed 00:00:01.06

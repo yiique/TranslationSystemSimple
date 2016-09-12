@@ -1,0 +1,6 @@
+INCLUDE_DIRECTORIES(../../)
+INCLUDE_DIRECTORIES(../)
+AUX_SOURCE_DIRECTORY(. CONTROL_PROCESS_SRC_LIST)
+ADD_LIBRARY(lib_control_process ${CONTROL_PROCESS_SRC_LIST})
+TARGET_LINK_LIBRARIES(lib_control_process lib_tinyxml)
+TARGET_LINK_LIBRARIES(lib_control_process lib_transcontroller)

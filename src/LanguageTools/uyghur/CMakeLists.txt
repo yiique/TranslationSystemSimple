@@ -1,0 +1,6 @@
+ADD_SUBDIRECTORY(uyconv)
+ADD_SUBDIRECTORY(uyidentify)
+ADD_SUBDIRECTORY(uytoken)
+ADD_SUBDIRECTORY(uynetrans)
+
+

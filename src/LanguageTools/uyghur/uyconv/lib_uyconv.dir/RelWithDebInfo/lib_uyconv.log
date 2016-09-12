@@ -1,0 +1,25 @@
+﻿Build started 2014/11/28 15:54:35.
+     1>Project "D:\work\TRTrans\master\src\LanguageTools\uyghur\uyconv\lib_uyconv.vcxproj" on node 5 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "D:\work\TRTrans\master\src\LanguageTools\uyghur\uyconv\RelWithDebInfo\".
+       InitializeBuildStatus:
+         Creating "lib_uyconv.dir\RelWithDebInfo\lib_uyconv.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Building Custom Rule D:/work/TRTrans/master/src/LanguageTools/uyghur/uyconv/CMakeLists.txt
+         CMake does not need to re-run because D:\work\TRTrans\master\src\LanguageTools\uyghur\uyconv\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /ID:/work/TRTrans/boost_1_48_0 /ID:/work/TRTrans/mysql/include /I"D:/work/TRTrans/mysql++-3.1.0" /ID:/work/TRTrans/icu/include/win64 /ID:/work/TRTrans/master/src/LanguageTools/uyghur/uyconv/../../.. /Zi /nologo /W3 /WX- /O2 /Ob1 /D WIN32 /D _WINDOWS /D NDEBUG /D WINDOWS /D "CMAKE_INTDIR=\"RelWithDebInfo\"" /D _MBCS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"lib_uyconv.dir\RelWithDebInfo\\" /Fd"D:/work/TRTrans/master/src/LanguageTools/uyghur/uyconv/RelWithDebInfo/lib_uyconv.pdb" /Gd /TP /errorReport:prompt COldLadConv.cpp
+         COldLadConv.cpp
+     1>COldLadConv.cpp(755): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>COldLadConv.cpp(851): warning C4101: “indicator”: 未引用的局部变量
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\Lib.exe /OUT:"D:\work\TRTrans\master\src\LanguageTools\uyghur\uyconv\RelWithDebInfo\lib_uyconv.lib" /NOLOGO lib_uyconv.dir\RelWithDebInfo\COldLadConv.obj
+         lib_uyconv.vcxproj -> D:\work\TRTrans\master\src\LanguageTools\uyghur\uyconv\RelWithDebInfo\lib_uyconv.lib
+       FinalizeBuildStatus:
+         Deleting file "lib_uyconv.dir\RelWithDebInfo\lib_uyconv.unsuccessfulbuild".
+         Touching "lib_uyconv.dir\RelWithDebInfo\lib_uyconv.lastbuildstate".
+     1>Done Building Project "D:\work\TRTrans\master\src\LanguageTools\uyghur\uyconv\lib_uyconv.vcxproj" (build target(s)).
+
+生成成功。
+
+Time Elapsed 00:00:03.95

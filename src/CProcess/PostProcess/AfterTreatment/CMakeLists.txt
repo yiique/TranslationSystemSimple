@@ -1,0 +1,6 @@
+INCLUDE_DIRECTORIES(../../../)
+INCLUDE_DIRECTORIES(../../)
+AUX_SOURCE_DIRECTORY(. AFTER_PROCESS_SRC_LIST)
+ADD_LIBRARY(lib_post_after_process ${AFTER_PROCESS_SRC_LIST})
+TARGET_LINK_LIBRARIES(lib_post_after_process lib_tinyxml)
+TARGET_LINK_LIBRARIES(lib_post_after_process lib_aftertreatment)
