@@ -34,7 +34,7 @@
 #include <vector>
 using namespace std;
 
-class CLanguage
+/*class CLanguage
 {
 public:
 	CLanguage(void) {};
@@ -138,8 +138,18 @@ private:
 
 	//korean seg
 	static KMA_DLL m_kma;
-};
+};*/
 
+
+class CLanguage
+{
+public:
+	static void Utf8A2B(string & src);
+	static string & SplitStrByChar(string & str);
+	static void StandardSentFilter(SentProcCell & sent_cell);
+private:
+	static string & utf8_char_a2b(string & utf8_char);
+};
 
 
 #endif //CLANGUAGE_H

@@ -743,3 +743,84 @@ bool MatchResult::un_serialize(const string & str)
 
 	return true;
 }
+
+
+// 华城
+int DictManager::MatchSentByMaxSequence(const UsrID & usrid,
+										const DomainType & domain_info,
+										const bool & is_with_blank,
+										const string & sent,
+										list<MatchResult> & result_list)
+{
+	return match_sent_loacl_by_max_sequence(usrid, domain_info, is_with_blank, sent, result_list);
+}
+
+int DictManager::match_sent_loacl_by_max_sequence(const UsrID & usrid,
+												  const DomainType & domain_info,
+												  const bool & is_with_blank,
+												  const string & sent,
+												  list<MatchResult> & result_list)
+{
+	match_sent_local(usrid, domain_info, is_with_blank, sent, result_list);
+
+	// 按递减长度尝试寻找最长串,如果存在则删除冲突的串
+	vector<string> word_vec;
+	split_string_by_blank(sent.c_str(), word_vec);
+
+	for (int len = word_vec.size(); len > 0; len --)
+	{
+		keep_max_sequence(result_list, len);
+	}
+	return SUCCESS;
+}
+
+void DictManager::keep_max_sequence(list<MatchResult> &result_list, int max_len)
+{
+	list<MatchResult> max_len_sequences;
+	list<MatchResult> filter_result_list;
+
+	// 找到互不冲突的最长序列
+	for (int i = 0; i < result_list.size(); i ++)
+	{
+		MatchResult temp_match_result = result_list[i];
+		if (temp_match_result.pos_end - temp_match_result.pos_beg == max_len)
+		{
+			// 如果不和已有冲突,加入max_len_sequences
+			bool conflict = false;
+			for (int j = 0; j < max_len_sequences.size(); j ++)
+			{
+				if (temp_match_result.conflict(max_len_sequences[j]))
+				{
+					conflict = true;
+					break;
+				}
+			}
+			if (!conflict)
+			{
+				max_len_sequences.push_back(temp_match_result);
+			}
+		}
+	}
+
+	// 根据最长序列过滤result_list至filter_result_list
+	for (int i = 0; i < result_list.size(); i ++)
+	{
+		MatchResult temp_match_result = result_list[i];
+		// 如果不和max_len_sequence中的任一个冲突,或者直接相等,加入filter_result_list
+		bool conflict = false;
+		for (int j = 0; j < max_len_sequences.size(); j ++)
+		{
+			if (temp_match_result.conflict(max_len_sequences[j]))
+			{
+				conflict = true;
+				break;
+			}
+		}
+		if (!conflict)
+		{
+			filter_result_list.push_back(temp_match_result);
+		}
+	}
+
+	result_list = filter_result_list;
+}
