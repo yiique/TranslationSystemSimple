@@ -3,18 +3,57 @@
 using namespace ssplite;
 
 
+// class SentStream
+void SentStream::Append(const size_t beg, const size_t end, const SentAttribute attr)
+{
+	assert(end >= beg);
+
+	if( beg >= end)
+		return;
+
+	if(get_buffer_length() + end - beg > m_max_word_num)
+		Flush();
+
+	m_sent_buf.push_back(make_pair(beg, end));
+
+	if(attr == ATTR_SENT_TERMINAL && get_buffer_length() > m_min_word_num)
+		Flush();
+}
+
+void SentStream::Flush()
+{
+	if(m_sent_buf.size() == 0)
+		return;
+
+	if(m_sent_buf.begin()->first < m_sent_buf.rbegin()->second)
+		m_output_vec.push_back(make_pair(m_sent_buf.begin()->first, m_sent_buf.rbegin()->second));
+
+	m_sent_buf.clear();
+}
+
+size_t SentStream::get_buffer_length()
+{
+	if(m_sent_buf.size() == 0)
+		return 0;
+
+	assert(m_sent_buf.rbegin()->second >= m_sent_buf.begin()->first);
+
+	return m_sent_buf.rbegin()->second - m_sent_buf.begin()->first;
+}
 
 
-SentSpliter::SentSpliter(const string & token_src, 
+// class SentSpliter
+// 初始化的同时过滤首尾换行符并按照空格切分
+SentSpliter::SentSpliter(const string & token_src,
 						 const bool is_add_miss_end_punc,
-						 const size_t max_word_num, 
+						 const size_t max_word_num,
 						 const size_t min_word_num,
-						 const PuncResource & punc_resource): 
-						m_is_add_miss_end_punc(is_add_miss_end_punc),
-						m_max_word_num(max_word_num), 
-						m_min_word_num(min_word_num),
-						m_punc_resource(punc_resource),
-						m_is_finish(false)
+						 const PuncResource & punc_resource):
+		m_is_add_miss_end_punc(is_add_miss_end_punc),
+		m_max_word_num(max_word_num),
+		m_min_word_num(min_word_num),
+		m_punc_resource(punc_resource),
+		m_is_finish(false)
 {
 	string tmp(token_src);
 	filter_head_tail(tmp);
@@ -33,8 +72,8 @@ string & SentSpliter::filter_head_tail(string & str)
 	for(head=0; head < str.size(); ++head)
 	{
 		if(    str[head] != ' '
-			&& str[head] != '\r'
-			&& str[head] != '\n')
+			   && str[head] != '\r'
+			   && str[head] != '\n')
 			break;
 	}
 
@@ -42,17 +81,16 @@ string & SentSpliter::filter_head_tail(string & str)
 	for(tail=str.size(); tail >= 0; --tail)
 	{
 		if(    str[tail-1] != ' '
-			&& str[tail-1] != '\r'
-			&& str[tail-1] != '\n')
+			   && str[tail-1] != '\r'
+			   && str[tail-1] != '\n')
 			break;
 	}
 
 	if(tail <= head) //说明全是空格回车和换行
 		return (str = "");
-	
+
 	return (str = str.substr(head, tail-head));
 }
-
 
 void SentSpliter::split_string_by_blank(const string & src, vector<string> & tgt_vec)
 {
@@ -64,13 +102,12 @@ void SentSpliter::split_string_by_tag(const string & src, vector<string> & tgt_v
 {
 	tgt_vec.clear();
 
-	if(src.size() == 0) 
+	if(src.size() == 0)
 	{
 		tgt_vec.push_back("");
 		return ;
 	}
 
-	
 	size_t idx = 0;
 	string curr_str;
 
@@ -89,7 +126,6 @@ void SentSpliter::split_string_by_tag(const string & src, vector<string> & tgt_v
 		{
 			curr_str += c;
 		}
-
 		++idx;
 	}
 
@@ -99,9 +135,9 @@ void SentSpliter::split_string_by_tag(const string & src, vector<string> & tgt_v
 	}
 
 	return ;
-
 }
 
+// 获取分句结果
 const vector<string> & SentSpliter::GetDebugResult(void)
 {
 	if( true == m_is_finish )
@@ -127,7 +163,7 @@ const vector<string> & SentSpliter::GetDebugResult(void)
 		{
 			if(k != splite_pos_vec[i].first)
 				*(m_splite_result.rbegin()) += "";
-		
+
 			string debug_str = get_block_name(k);
 
 			size_t pos = debug_str.find("/");
@@ -148,7 +184,6 @@ const vector<string> & SentSpliter::GetDebugResult(void)
 
 const vector<string> & SentSpliter::GetSpliteResult(void)
 {
-	
 	if( true == m_is_finish )
 		return m_splite_result;
 
@@ -172,7 +207,7 @@ const vector<string> & SentSpliter::GetSpliteResult(void)
 		{
 			if(k != splite_pos_vec[i].first)
 				*(m_splite_result.rbegin()) += " ";
-		
+
 			*(m_splite_result.rbegin()) += get_block_content(k);
 		}
 	}
@@ -181,198 +216,7 @@ const vector<string> & SentSpliter::GetSpliteResult(void)
 	return m_splite_result;
 }
 
-
-bool SentSpliter::find_last_punc(const size_t beg, const size_t end, size_t & last_punc)
-{
-	assert(end <= m_block_vec.size() && beg <= end);
-
-	if(beg >= end)
-		return false;
-	
-	size_t idx = end - 1;
-	while(idx >= beg)
-	{
-		if(get_block_type(idx) != TYPE_WORD)
-		{
-			last_punc = idx;
-			return true;
-		}
-
-		if(beg == idx)
-			return false;
-
-		--idx;
-
-	}
-
-	return false;
-
-}
-
-bool SentSpliter::find_right_punc(const size_t beg, const size_t end, size_t & right_punc)
-{
-	assert(end <= m_block_vec.size() && beg <= end);
-
-	if(beg >= end || (beg + 1) == end)
-		return false;
-
-	const size_t left_punc = beg;
-
-	map<size_t, size_t>::const_iterator iter = m_left_right_map.find(left_punc);
-
-	if(iter == m_left_right_map.end())
-		return false;
-
-	if(iter->second <= left_punc || iter->second >= end)
-		return false;
-
-	right_punc = iter->second;
-
-	return true;
-
-}
-
-
-
-void SentSpliter::splite_sub_sent(const size_t beg, const size_t end, SentStream & sent_stream)
-{
-	assert(end <= m_block_vec.size() && beg <= end);
-
-	if(beg >= end) return;
-
-	size_t sub_sent_beg = beg;
-
-	for(size_t i=beg; i<end; ++i)
-	{
-		if( get_block_type(i) == TYPE_WORD )
-		{
-			if(i - sub_sent_beg + 1 >= m_max_word_num)
-			{
-				//前面可能有引号
-				size_t last_punc = 0;
-				if( false == find_last_punc(sub_sent_beg, i+1, last_punc))
-				{
-					sent_stream.Append(sub_sent_beg, i+1, ATTR_SENT_NORMAL);
-
-					sub_sent_beg = i+1;
-				}else
-				{
-					sent_stream.Append(sub_sent_beg, last_punc+1, ATTR_SENT_NORMAL);
-					sub_sent_beg = last_punc+1;
-				}
-			}
-
-		}else
-		{
-			
-			size_t right = 0;
-			if( find_right_punc(i, end, right) ) //是配对的左标点
-			{
-
-				if(right - i + 1 > m_max_word_num)
-				{
-					//先输出前面的
-					sent_stream.Flush(); //先清空buf
-					sent_stream.Append(sub_sent_beg, i, get_subsent_attribute(sub_sent_beg, i));
-
-					//左右标点单独成句，同时不能与前面的合并，因此要清空sentbuf
-
-					//左标点
-					sent_stream.Flush();
-					sent_stream.Append(i, i+1, ATTR_SENT_TERMINAL);
-					sent_stream.Flush();
-
-					//中间部分递归切分
-					splite_sub_sent(i+1, right, sent_stream);
-
-					//右标点
-					sent_stream.Flush();
-					sent_stream.Append(right, right+1, ATTR_SENT_TERMINAL);
-					sent_stream.Flush();
-
-					sub_sent_beg = right + 1;
-					
-
-				}else
-				{
-					if(right - sub_sent_beg + 1 > m_max_word_num)
-					{
-						sent_stream.Flush();
-						sent_stream.Append(sub_sent_beg, i, get_subsent_attribute(sub_sent_beg, i));
-						sent_stream.Append(i, right+1, get_subsent_attribute(i, right+1));
-						sub_sent_beg = right + 1;
-					}else
-					{
-						if( ATTR_SENT_TERMINAL == get_subsent_attribute(i, right+1))
-						{
-							sent_stream.Append(sub_sent_beg, right+1, ATTR_SENT_TERMINAL);
-							sub_sent_beg = right + 1;
-						}else
-						{
-							//donothing
-						}
-					}
-					
-				}
-
-				i = right;
-				
-			}else
-			{
-				//其他标点
-				sent_stream.Append(sub_sent_beg, i+1, get_subsent_attribute(sub_sent_beg, i+1));
-				sub_sent_beg = i+1;
-
-			}
-		}
-	}
-
-	if(sub_sent_beg < end)
-		sent_stream.Append(sub_sent_beg, end, get_subsent_attribute(sub_sent_beg, end));
-
-}
-
-void SentStream::Append(const size_t beg, const size_t end, const SentAttribute attr)
-{
-	assert(end >= beg);
-
-	if( beg >= end)
-		return;
-
-	if(get_buffer_length() + end - beg > m_max_word_num)
-		Flush();
-
-	m_sent_buf.push_back(make_pair(beg, end));
-
-	if(attr == ATTR_SENT_TERMINAL && get_buffer_length() > m_min_word_num)
-		Flush();
-}
-
-void SentStream::Flush()
-{
-	if(m_sent_buf.size() == 0) 
-		return;
-
-	if(m_sent_buf.begin()->first < m_sent_buf.rbegin()->second)
-		m_output_vec.push_back(make_pair(m_sent_buf.begin()->first, m_sent_buf.rbegin()->second));
-	
-	m_sent_buf.clear();
-
-}
-
-
-
-size_t SentStream::get_buffer_length()
-{
-	if(m_sent_buf.size() == 0)
-		return 0;
-
-	assert(m_sent_buf.rbegin()->second >= m_sent_buf.begin()->first);
-
-	return m_sent_buf.rbegin()->second - m_sent_buf.begin()->first;
-}
-
-
+// 标点识别
 void SentSpliter::init_block_seq(const vector<string> & src_word_vec)
 {
 	for(size_t i=0; i<src_word_vec.size(); ++i)
@@ -403,7 +247,6 @@ void SentSpliter::init_block_seq(const vector<string> & src_word_vec)
 	{
 		if(m_block_vec[i].type == TYPE_PUNC_QUOT)
 		{
-
 			size_t num = punc_stack.size();
 
 			while( num > 0 )
@@ -415,7 +258,7 @@ void SentSpliter::init_block_seq(const vector<string> & src_word_vec)
 
 				num--;
 			}
-			
+
 			if( 0 == num )
 				punc_stack.push_back(i);
 			else
@@ -427,15 +270,102 @@ void SentSpliter::init_block_seq(const vector<string> & src_word_vec)
 
 				punc_stack.erase(punc_stack.begin()+(num-1), punc_stack.end());
 			}
+		}
+	}
+}
 
+// 划分子句
+void SentSpliter::splite_sub_sent(const size_t beg, const size_t end, SentStream & sent_stream)
+{
+	assert(end <= m_block_vec.size() && beg <= end);
+
+	if(beg >= end) return;
+
+	size_t sub_sent_beg = beg;
+
+	for(size_t i=beg; i<end; ++i)
+	{
+		if( get_block_type(i) == TYPE_WORD )
+		{
+			if(i - sub_sent_beg + 1 >= m_max_word_num)
+			{
+				//前面可能有引号
+				size_t last_punc = 0;
+				if( false == find_last_punc(sub_sent_beg, i+1, last_punc))
+				{
+					sent_stream.Append(sub_sent_beg, i+1, ATTR_SENT_NORMAL);
+
+					sub_sent_beg = i+1;
+				}else
+				{
+					sent_stream.Append(sub_sent_beg, last_punc+1, ATTR_SENT_NORMAL);
+					sub_sent_beg = last_punc+1;
+				}
+			}
+		}else
+		{
+			size_t right = 0;
+			if( find_right_punc(i, end, right) ) //是配对的左标点
+			{
+				if(right - i + 1 > m_max_word_num)
+				{
+					//先输出前面的
+					sent_stream.Flush(); //先清空buf
+					sent_stream.Append(sub_sent_beg, i, get_subsent_attribute(sub_sent_beg, i));
+
+					//左右标点单独成句，同时不能与前面的合并，因此要清空sentbuf
+					//左标点
+					sent_stream.Flush();
+					sent_stream.Append(i, i+1, ATTR_SENT_TERMINAL);
+					sent_stream.Flush();
+
+					//中间部分递归切分
+					splite_sub_sent(i+1, right, sent_stream);
+
+					//右标点
+					sent_stream.Flush();
+					sent_stream.Append(right, right+1, ATTR_SENT_TERMINAL);
+					sent_stream.Flush();
+
+					sub_sent_beg = right + 1;
+				}else
+				{
+					if(right - sub_sent_beg + 1 > m_max_word_num)
+					{
+						sent_stream.Flush();
+						sent_stream.Append(sub_sent_beg, i, get_subsent_attribute(sub_sent_beg, i));
+						sent_stream.Append(i, right+1, get_subsent_attribute(i, right+1));
+						sub_sent_beg = right + 1;
+					}else
+					{
+						if( ATTR_SENT_TERMINAL == get_subsent_attribute(i, right+1))
+						{
+							sent_stream.Append(sub_sent_beg, right+1, ATTR_SENT_TERMINAL);
+							sub_sent_beg = right + 1;
+						}else
+						{
+							//donothing
+						}
+					}
+				}
+				i = right;
+
+			}else
+			{
+				//其他标点
+				sent_stream.Append(sub_sent_beg, i+1, get_subsent_attribute(sub_sent_beg, i+1));
+				sub_sent_beg = i+1;
+			}
 		}
 	}
 
+	if(sub_sent_beg < end)
+		sent_stream.Append(sub_sent_beg, end, get_subsent_attribute(sub_sent_beg, end));
 }
 
+// Tools
 void SentSpliter::identify(Block & block)
 {
-
 	//生成name 后面可能要进行标准转换，保留原来的content
 	string punc_name = block.content;
 
@@ -458,33 +388,77 @@ void SentSpliter::identify(Block & block)
 	return;
 }
 
+bool SentSpliter::find_last_punc(const size_t beg, const size_t end, size_t & last_punc)
+{
+	assert(end <= m_block_vec.size() && beg <= end);
 
-const string & SentSpliter::get_block_content(const size_t idx) const 
+	if(beg >= end)
+		return false;
+
+	size_t idx = end - 1;
+	while(idx >= beg)
+	{
+		if(get_block_type(idx) != TYPE_WORD)
+		{
+			last_punc = idx;
+			return true;
+		}
+
+		if(beg == idx)
+			return false;
+
+		--idx;
+	}
+	return false;
+}
+
+bool SentSpliter::find_right_punc(const size_t beg, const size_t end, size_t & right_punc)
+{
+	assert(end <= m_block_vec.size() && beg <= end);
+
+	if(beg >= end || (beg + 1) == end)
+		return false;
+
+	const size_t left_punc = beg;
+
+	map<size_t, size_t>::const_iterator iter = m_left_right_map.find(left_punc);
+
+	if(iter == m_left_right_map.end())
+		return false;
+
+	if(iter->second <= left_punc || iter->second >= end)
+		return false;
+
+	right_punc = iter->second;
+
+	return true;
+}
+
+const string & SentSpliter::get_block_content(const size_t idx) const
 {
 	assert(idx < m_block_vec.size());
 
 	return m_block_vec[idx].content;
 }
-const string & SentSpliter::get_block_name(const size_t idx) const 
+const string & SentSpliter::get_block_name(const size_t idx) const
 {
 	assert(idx < m_block_vec.size());
 
 	return m_block_vec[idx].name;
 }
 
-size_t SentSpliter::get_block_type(const size_t idx) const 
+size_t SentSpliter::get_block_type(const size_t idx) const
 {
 	assert(idx < m_block_vec.size());
 
 	return m_block_vec[idx].type;
 }
 
-
 SentAttribute SentSpliter::get_subsent_attribute(const size_t beg, const size_t end)
 {
 	assert(end <= m_block_vec.size() && beg <= end);
 
-	if(beg >= end) 
+	if(beg >= end)
 		return ATTR_SENT_NORMAL;
 
 	const size_t last = end - 1;
@@ -502,4 +476,3 @@ SentAttribute SentSpliter::get_subsent_attribute(const size_t beg, const size_t 
 
 	return ATTR_SENT_NORMAL;
 }
-

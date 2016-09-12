@@ -83,6 +83,11 @@ public:
 				  const DomainType & domain_info, 
 				  const string & sent, 
 				  list<MatchResult> & result_list);
+	int MatchSentByMaxSequence(const UsrID & usrid,
+							   const DomainType & domain_info,
+							   const bool & is_with_blank,
+							   const string & sent,
+							   list<MatchResult> & result_list);
 
 	int ToSysDict(const vector<size_t> & wordid_vec, const DictID & tgt_dict_id);
 
@@ -115,6 +120,14 @@ private:
 						  const DomainType & domain_info, 
 						  const string & sent, 
 						  list<MatchResult> & result_list);
+	// 华城——最长序列匹配本地字典
+	int match_sent_loacl_by_max_sequence(const UsrID & usrid,
+										 const DomainType & domain_info,
+										 const bool & is_with_blank,
+										 const string & sent,
+										 list<MatchResult> & result_list);
+	// 递归保留最长的子序列
+	void keep_max_sequence(list<MatchResult> & result_list, int max_len);
 
 	int insert_dict(const size_t new_dict_id, const DictInfo & dict_info);
 	int insert_word(const size_t new_word_id, const DictID dict_id, const WordInfo & word_info);
